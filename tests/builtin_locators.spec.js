@@ -10,7 +10,6 @@ page.getbytitle()----by its title attribute
 page.getbytestid()----based on data test id attribute
 */
 
-
 import {test, expect} from '@playwright/test'
 test('builtin_locators',async({page})=>{
     await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
@@ -26,9 +25,6 @@ test('builtin_locators',async({page})=>{
     await page.getByRole('button',{type:'submit'}).click()
 
     //get by text here 27 line is fetching the name and its stored in name variable
-   const name=await page.locator('//p[@class="oxd-userdropdown-name"]').textContent
+   const name=await page.locator('//p[@class="oxd-userdropdown-name"]').textContent()
     await expect(await page.getByText(name)).toBeVisible()
-
-    //
-
 })
